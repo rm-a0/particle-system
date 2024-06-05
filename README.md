@@ -15,8 +15,3 @@ Compile and run using
 ```
 make run
 ```
-or
-```
-g++ main.o -o particlesystem -lsfml-graphics -lsfml-window -lsfml-system
-./particlesystem
-```
