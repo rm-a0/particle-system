@@ -3,7 +3,7 @@
 #include "Particle.h"
 
 int main(void) {
-    //sf::RenderWindow window(sf::VideoMode(800, 600), "Particle System Test");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Particle System Test");
     Vector3 pos(100.0, 100.0);
     Vector3 vel(10.0);
     Vector3 acc(0.0, 1.0);
@@ -12,6 +12,18 @@ int main(void) {
     Particle particle(pos, vel, acc, lifespan);
 
     std::cout << particle.position.x << std::endl;
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+        }
+
+        window.clear();
+        window.display();
+    }
 
     return 0;
 }
