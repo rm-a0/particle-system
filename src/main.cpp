@@ -10,9 +10,9 @@ int main(void) {
     float lifespan = 5.0;
 
     Particle particle(pos, vel, acc, lifespan);
-    particle.position = particle.position + pos;
 
-    std::cout << particle.position.x << std::endl;
+
+    sf::Clock clock;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -21,6 +21,10 @@ int main(void) {
                 window.close();
             }
         }
+
+        float deltaTime = clock.restart().asSeconds();
+
+        particle.update(deltaTime);
 
         window.clear();
         window.display();
