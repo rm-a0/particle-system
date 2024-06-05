@@ -1,11 +1,12 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -I/usr/local/include -Iinclude
+CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic -I/usr/local/include -Iinc
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 SRCDIR = src
 INCDIR = inc
+BUILDDIR = build
 
 SRCS = $(wildcard $(SRCDIR)/*.cpp)
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(patsubst $(SRCDIR)/%.cpp,$(BUILDDIR)/%.o,$(SRCS))
 
 TARGET = particlesystem
 
@@ -14,13 +15,17 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(OBJS) -o $(TARGET) $(LDFLAGS)
 
-%.o: %.cpp
+$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp | $(BUILDDIR)
 	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
 
 run: $(TARGET)
 	./$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(BUILDDIR) $(TARGET)
 
 .PHONY: all run clean
+

@@ -11,5 +11,7 @@ int main(void) {
 
     Particle particle(pos, vel, acc, lifespan);
 
+    std::cout << particle.position.x << std::endl;
+
     return 0;
 }
