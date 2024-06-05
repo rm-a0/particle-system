@@ -44,6 +44,22 @@ public:
      * Divides vector by a scalar
     */
     Vector3 operator/(float scalar) const;
+
+    /* Compound vector addition
+     * ------------------------
+     * Parameters:
+     * const Vector& vect
+     * Performs compound addition of vectors
+    */
+    Vector3& operator+=(const Vector3& vect);
+
+    /* Compound vector substraction
+     * ----------------------------
+     * Parameters:
+     * const Vector& vect
+     * Performs compound substraction of vectors
+    */
+    Vector3& operator-=(const Vector3& vect);
 };
 
 #endif // VECTOR3_H

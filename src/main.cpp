@@ -11,7 +11,6 @@ int main(void) {
 
     Particle particle(pos, vel, acc, lifespan);
 
-
     sf::Clock clock;
 
     while (window.isOpen()) {
