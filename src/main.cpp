@@ -10,6 +10,7 @@ int main(void) {
     float lifespan = 5.0;
 
     Particle particle(pos, vel, acc, lifespan);
+    particle.position = particle.position + pos;
 
     std::cout << particle.position.x << std::endl;
 
