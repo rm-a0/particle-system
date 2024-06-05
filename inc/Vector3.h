@@ -48,7 +48,7 @@ public:
     /* Compound vector addition
      * ------------------------
      * Parameters:
-     * const Vector& vect
+     * const Vector3& vect
      * Performs compound addition of vectors
     */
     Vector3& operator+=(const Vector3& vect);
@@ -56,7 +56,7 @@ public:
     /* Compound vector substraction
      * ----------------------------
      * Parameters:
-     * const Vector& vect
+     * const Vector3& vect
      * Performs compound substraction of vectors
     */
     Vector3& operator-=(const Vector3& vect);
