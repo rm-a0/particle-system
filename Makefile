@@ -1,9 +1,10 @@
-# Makefile
 CXX = g++
-CSSFLAGS = -std=c+11 -Wall -I/usr/local/include
+CXXFLAGS = -std=c++11 -Wall -I/usr/local/include -Iinclude
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+SRCDIR = src
+INCDIR = inc
 
-SRCS = main.cpp
+SRCS = $(wildcard $(SRCDIR)/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 TARGET = particlesystem
@@ -14,7 +15,7 @@ $(TARGET): $(OBJS)
 	$(CXX) $(OBJS) -o $(TARGET) $(LDFLAGS)
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
 run: $(TARGET)
 	./$(TARGET)
@@ -22,4 +23,4 @@ run: $(TARGET)
 clean:
 	rm -f $(OBJS) $(TARGET)
 
-.PHONY: all make clean
+.PHONY: all run clean
