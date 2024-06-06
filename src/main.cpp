@@ -9,7 +9,7 @@ int main(void) {
     Vector3 acc(0.0, 1.0);
     float lifespan = 5.0;
 
-    Particle particle(pos, vel, acc, lifespan);
+    Particle particle(pos, vel, acc, lifespan, sf::Color::Red);
 
     sf::Clock clock;
 
