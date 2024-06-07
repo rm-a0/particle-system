@@ -1,10 +1,10 @@
 #include "Particle.h"
 
-Particle::Particle(const Vector3& pos, const Vector3& vel, const Vector3& acc, float lifeSpan, float size, const Color& color)
+Particle::Particle(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float size, const Color& color)
         : position(pos), velocity(vel), acceleration(acc), lifeSpan(lifeSpan), size(size), color(color) {}
 
 void Particle::update(float deltaTime) {
-        velocity = velocity + acceleration * deltaTime;
-        position = position + velocity * deltaTime;
+        velocity += acceleration * deltaTime;
+        position += velocity * deltaTime;
         lifeSpan -= deltaTime;
 }

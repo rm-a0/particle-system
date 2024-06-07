@@ -22,7 +22,7 @@ Renderer::Renderer(int screenWidth, int screenHeight)
         if (glewInit() != GLEW_OK) {
                 std::cerr << "Failed to initialize OpenGL" << std::endl;
         }
-        
+
         // Enable OpenGL functions
         initOpenGL();
 }

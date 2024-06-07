@@ -1,14 +1,15 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
-#include "Vector3.h"
+#include <glm/glm.hpp>
+#include <glm/vec3.hpp>
 #include "Color.h"
 
 class Particle {
 public:
-    Vector3 position;
-    Vector3 velocity;
-    Vector3 acceleration;
+    glm::vec3 position;
+    glm::vec3 velocity;
+    glm::vec3 acceleration;
     float lifeSpan;
     float size;
     Color color;
@@ -16,11 +17,11 @@ public:
     /* Particle constructor
      * --------------------
      * Parameters:
-     * const Vector3& position, velocity acceleration
+     * const glm::vec3& position, velocity acceleration
      * float lifespan
      * Color color
     */
-    Particle(const Vector3& pos, const Vector3& vel, const Vector3& acc, float lifeSpan, float size, const Color& color);
+    Particle(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float size, const Color& color);
 
     /* Particle update
      * ---------------
