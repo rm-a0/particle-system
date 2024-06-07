@@ -2,6 +2,7 @@
 #define PARTICLE_H
 
 #include "Vector3.h"
+#include "Color.h"
 
 class Particle {
 public:
@@ -9,16 +10,16 @@ public:
     Vector3 velocity;
     Vector3 acceleration;
     float lifeSpan;
-    float r, g, b;
+    Color color;
 
     /* Particle constructor
      * --------------------
      * Parameters:
      * const Vector3& position, velocity acceleration
      * float lifespan
-     * float r, g, b
+     * Color color
     */
-    Particle(const Vector3& pos, const Vector3& vel, const Vector3& acc, float lifespan, float r, float g, float b);
+    Particle(const Vector3& pos, const Vector3& vel, const Vector3& acc, float lifespan, const Color& color);
 
     /* Particle update
      * ---------------
