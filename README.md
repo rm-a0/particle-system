@@ -16,6 +16,12 @@ Compile and run using
 ```
 make run
 ```
+# Updates and Features
+- [x] Created window
+- [x] Tested and rendered particle
+- [x] Tested particle updating
+- [ ] Added camera and depth
 
 # Bugs and Issues
 - [ ] Valgrind showing 2 errors from 2 contexts when initializing particle class
+- [ ] Particle has no depth
