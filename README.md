@@ -16,3 +16,6 @@ Compile and run using
 ```
 make run
 ```
+
+# Bugs and Issues
+- [ ] Valgrind showing 2 errors from 2 contexts when initializing particle class

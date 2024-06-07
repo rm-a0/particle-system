@@ -14,7 +14,7 @@ int main(void) {
     Vector3 acc(0.0, 1.0);
     float lifespan = 5.0;
 
-    Particle particle(pos, vel, acc, lifespan, Color());
+    Particle particle(pos, vel, acc, lifespan, Color(0.0, 1.1, 2.2));
 
     if (!glfwInit()) {
         std::cerr << "Failed to initialize GLFW" << std::endl;
@@ -47,6 +47,7 @@ int main(void) {
 
     glfwDestroyWindow(window);
     glfwTerminate();
+
     return 0;
 }
 
