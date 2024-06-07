@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+//#include <GLFW/glfw3.h>
 #include "Particle.h"
 
 int main(void) {
@@ -9,7 +10,7 @@ int main(void) {
     Vector3 acc(0.0, 1.0);
     float lifespan = 5.0;
 
-    Particle particle(pos, vel, acc, lifespan, sf::Color::Red);
+    Particle particle(pos, vel, acc, lifespan, 0.0, 0.0, 0.0);
 
     sf::Clock clock;
 
