@@ -2,7 +2,7 @@
 #define RENDERER_H
 
 #include <GLFW/glfw3.h>
-#include "Color.h"
+#include "Particle.h"
 
 class Renderer {
 public:
@@ -24,7 +24,19 @@ public:
     */
     ~Renderer();
 
+    /* OpenGl initializer
+     * -------------------
+     * Parameters:
+     * None
+    */
     void initOpenGL();
+
+    /* Particle renderer
+     * -----------------
+     * Parameters:
+     * const Particle& particle
+    */
+    void renderParticle(const Particle& particle);
 };
 
 #endif // RENDERER_H
