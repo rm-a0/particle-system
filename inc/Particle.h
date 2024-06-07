@@ -10,6 +10,7 @@ public:
     Vector3 velocity;
     Vector3 acceleration;
     float lifeSpan;
+    float size;
     Color color;
 
     /* Particle constructor
@@ -19,7 +20,7 @@ public:
      * float lifespan
      * Color color
     */
-    Particle(const Vector3& pos, const Vector3& vel, const Vector3& acc, float lifespan, const Color& color);
+    Particle(const Vector3& pos, const Vector3& vel, const Vector3& acc, float lifeSpan, float size, const Color& color);
 
     /* Particle update
      * ---------------
