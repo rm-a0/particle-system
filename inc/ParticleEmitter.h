@@ -6,7 +6,7 @@
 #include <vector>
 
 class ParticleEmitter {
-private:
+public:
     Vector3 position;
     Vector3 velocity;
     Vector3 acceleration;
@@ -15,7 +15,6 @@ private:
     Color color;
     std::vector<Particle> particles;
 
-public:
     /* ParticleEmitter constructor
      * ---------------------------
      * Parameters:

@@ -4,18 +4,15 @@
 #include "Renderer.h"
 
 int main(void) {
-    Particle particle(Vector3(), Vector3(), Vector3(), 5.0, 2.0, Color());
+    Particle particle(Vector3(50.0, 20.0), Vector3(), Vector3(), 5.0, 2.0, Color());
     Renderer renderer(800, 600);
 
     // Main loop
     while (!glfwWindowShouldClose(renderer.window)) {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 
         glfwPollEvents();
     }
 
-    renderer.~Renderer();
     return 0;
 }
 
