@@ -1,10 +1,14 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
-//#include <GLFW/glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "Particle.h"
 
+void initialize() {
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+}
+
 int main(void) {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Particle System Test");
     Vector3 pos(100.0, 100.0);
     Vector3 vel(10.0);
     Vector3 acc(0.0, 1.0);
@@ -12,23 +16,38 @@ int main(void) {
 
     Particle particle(pos, vel, acc, lifespan, 0.0, 0.0, 0.0);
 
-    sf::Clock clock;
-
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-
-        float deltaTime = clock.restart().asSeconds();
-
-        particle.update(deltaTime);
-
-        window.clear();
-        window.display();
+    if (!glfwInit()) {
+        std::cerr << "Failed to initialize GLFW" << std::endl;
+        return -1;
     }
 
+    GLFWwindow* window = glfwCreateWindow(800, 600, "3D Particle System", nullptr, nullptr);
+    if (!window) {
+        std::cerr << "Failed to create GLFW window" << std::endl;
+        glfwTerminate();
+        return -1;
+    }
+
+    glfwMakeContextCurrent(window);
+
+    if (glewInit() != GLEW_OK) {
+        std::cerr << "Failed to initialize GLEW" << std::endl;
+        return -1;
+    }
+
+    initialize();
+
+    while (!glfwWindowShouldClose(window)) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
     return 0;
 }
+
+

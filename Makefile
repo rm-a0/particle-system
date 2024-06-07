@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic -I/usr/local/include -Iinc
-LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+LDFLAGS = -lGL -lGLU -lglfw -lGLEW
 SRCDIR = src
 INCDIR = inc
 BUILDDIR = build
