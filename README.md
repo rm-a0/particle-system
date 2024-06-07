@@ -1,5 +1,5 @@
 # Overview
-Particle system written in C++ using SFML library
+3D Particle system written in C++ using OpenGL and GLFW libraries
 # Description
 
 # How to Install and Run
@@ -9,7 +9,8 @@ git clone https://github.com/rm-a0/particle-system
 ```
 Install dependencies
 ```
-sudo apt-get install libsfml-dev
+sudo apt-get update
+sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev libglfw3-dev libglew-dev
 ```
 Compile and run using
 ```
