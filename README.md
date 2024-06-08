@@ -23,8 +23,11 @@ make run
 - [x] Added camera and depth
 - [x] Tested and optimalized for multiple particles
 - [x] Added and tested color interpolation
+- [ ] Added particle emitter
+- [ ] Optimized rendering using VAOs
 - [ ] Added patterns for particles
 - [ ] Added particle emitter
 
 # Bugs and Issues
 - 2 errors from valgrind (issues with imported libraries)
+- Max 10k paricles on low end grpahics (tested with Intel Tiger Lake-LP GT2)

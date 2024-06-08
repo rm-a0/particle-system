@@ -17,7 +17,7 @@ public:
     /* ParticleEmitter constructor
      * ---------------------------
      * Parameters:
-     * const glm::vec3& position, velocity acceleration
+     * const glm::vec3& pos, vel, acc
      * float lifespan, emissionRate
      * Color color
     */
