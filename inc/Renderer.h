@@ -1,6 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -39,7 +40,7 @@ public:
      * Parameters:
      * const Particle& particle
     */
-    void renderParticle(const Particle& particle);
+    void renderParticles(const std::vector<Particle>& particles);
 };
 
 #endif // RENDERER_H
