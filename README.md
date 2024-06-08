@@ -22,6 +22,7 @@ make run
 - [x] Tested particle updating
 - [x] Added camera and depth
 - [x] Tested and optimalized for multiple particles
+- [x] Added and tested color interpolation
 - [ ] Added patterns for particles
 - [ ] Added particle emitter
 

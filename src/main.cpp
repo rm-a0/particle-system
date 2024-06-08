@@ -12,7 +12,7 @@ int main(void) {
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> vel_dist(0.4, 1.8);
     std::uniform_real_distribution<> vel_dist2(-0.8, 0.8);
-    std::uniform_real_distribution<> life_dist(0.1, 0.2);
+    std::uniform_real_distribution<> life_dist(3.0, 5.0);
     std::uniform_real_distribution<> pos_dist(-1.0, 1.0);
     std::uniform_real_distribution<> clr_dist(0.0, 0.5);
     std::uniform_real_distribution<> clr_dist2(0.8, 1.0);
@@ -25,7 +25,7 @@ int main(void) {
         float x_pos = pos_dist(gen);
         float g_val = clr_dist(gen);
         float r_val = clr_dist2(gen);
-        particles.emplace_back(glm::vec3(x_pos, -2.0f, 0.0f), glm::vec3(x_vel, y_vel, z_vel), glm::vec3(0.0f, -1.0f, 0.0f), lifetime, 0.1f, Color(r_val, g_val), Color(r_val*2, g_val*2));
+        particles.emplace_back(glm::vec3(x_pos, -1.0f, 0.0f), glm::vec3(x_vel, y_vel, z_vel), glm::vec3(0.0f, -1.0f, 0.0f), lifetime, 0.1f, Color(r_val, g_val), Color(r_val*2, g_val*2, 0.0f, 0.3f));
     }
     // Main loop
     while (!glfwWindowShouldClose(renderer.window)) {
