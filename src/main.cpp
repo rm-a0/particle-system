@@ -4,13 +4,13 @@
 #include "Renderer.h"
 
 int main(void) {
-    Particle particle(glm::vec3(), glm::vec3(1.0, 1.0, 3.0), glm::vec3(), 500.0, 20.0, Color(0.5, 0.2, 0.9));
+    Particle particle(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f, 0.0f, 0.0f), 500.0, 20.0, Color(0.5, 0.2, 0.9));
     Renderer renderer(800, 600);
 
     // Main loop
     while (!glfwWindowShouldClose(renderer.window)) {
 
-        particle.update(0.002f);
+        particle.update(0.01f);
         renderer.renderParticle(particle);
         glfwPollEvents();
     }

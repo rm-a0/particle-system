@@ -1,13 +1,16 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "Particle.h"
 
 class Renderer {
 public:
-    int screenWidth;
-    int screenHeight;
+    int screenWidth, screenHeight;
+    glm::mat4 projectionMatrix, viewMatrix;
     GLFWwindow* window;
 
     /* Renderer constructor
