@@ -23,4 +23,4 @@ make run
 - [x] Added camera and depth
 
 # Bugs and Issues
-- [ ] Valgrind showing 2 errors from 2 contexts when initializing particle class
+- 2 errors from valgrind (issues with imported libraries)
