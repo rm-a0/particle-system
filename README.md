@@ -21,6 +21,9 @@ make run
 - [x] Tested and rendered particle
 - [x] Tested particle updating
 - [x] Added camera and depth
+- [x] Tested and optimalized for multiple particles
+- [ ] Added patterns for particles
+- [ ] Added particle emitter
 
 # Bugs and Issues
 - 2 errors from valgrind (issues with imported libraries)
