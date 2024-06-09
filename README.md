@@ -23,7 +23,7 @@ make run
 - [x] Added camera and depth
 - [x] Tested and optimalized for multiple particles
 - [x] Added and tested color interpolation
-- [ ] Added particle emitter
+- [x] Added particle emitter
 - [ ] Optimized rendering using VAOs
 - [ ] Added patterns for particles
 - [ ] Added particle emitter
