@@ -11,7 +11,9 @@ public:
     glm::vec3 acceleration;
     float lifeSpan;
     float emissionRate;
+    float lastEmission;
     Color color;
+    Particle prototypeParticle;
     std::vector<Particle> particles;
 
     /* ParticleEmitter constructor
@@ -22,14 +24,15 @@ public:
      * const Color& color
      * const Particle& particle
     */
-    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, std::vector<Particle>& particles);
+    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, Particle prototypeP);
 
     /* Particle emitter
      * ----------------
      * Parameters:
-     * None
+     * float deltaTime
+     * Emits all particles stored inside particle vector based on deltaTime and emission rate
     */
-    void emitParticles();
+    void emit(float deltaTime);
 };
 
 
