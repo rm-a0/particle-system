@@ -4,9 +4,8 @@
 #include "Particle.h"
 #include "Renderer.h"
 
-int main(void) {
-    Renderer renderer(800, 600);
 
+std::vector<Particle> test() {
     std::vector<Particle> particles;
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -27,7 +26,16 @@ int main(void) {
         float r_val = clr_dist2(gen);
         particles.emplace_back(glm::vec3(x_pos, -1.0f, 0.0f), glm::vec3(x_vel, y_vel, z_vel), glm::vec3(0.0f, -1.0f, 0.0f), lifetime, 0.1f, Color(r_val, g_val), Color(r_val*2, g_val*2, 0.0f, 0.3f));
     }
-    // Main loop
+
+    return particles;
+}
+
+int main(void) {
+    Renderer renderer(800, 600);
+
+    std::vector<Particle> particles = test();
+
+   // Main loop
     while (!renderer.closeWindow()) {
 
         for (Particle& p : particles) {
