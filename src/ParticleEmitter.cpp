@@ -1,4 +1,5 @@
 #include "ParticleEmitter.h"
+#include <iostream>
 
 ParticleEmitter::ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, const Particle& prototypeP)
         : position(pos), velocity(vel), acceleration(acc), lifeSpan(lifeSpan), emissionRate(emissionRate), color(color), prototypeParticle(prototypeP) {
@@ -20,7 +21,6 @@ void ParticleEmitter::update(float deltaTime) {
 void ParticleEmitter::emit(int count) {
         for (int i = 0; i < count; ++i) {
                 Particle p = prototypeParticle;
-
                 p.position = position;
                 particles.push_back(p);
         }

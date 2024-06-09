@@ -30,8 +30,8 @@ std::vector<Particle> test() {
 }
 
 ParticleEmitter test2() {
-    Particle p (glm::vec3(0.0), glm::vec3(1.0, 1.0, -1.0), glm::vec3(0.0), 1, 0.1f, Color(1.0, 0.5), Color(1.0, 0.5));
-    ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 4.0, 0.05, Color(1.0), p);
+    Particle p (glm::vec3(0.0), glm::vec3(0.1, 0.1, 0.1), glm::vec3(0.0), 1.0, 1.0f, Color(1.0, 0.5), Color(1.0, 0.5));
+    ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 99900000, 0.05, Color(1.0), p);
     return emitter;
 }
 
@@ -45,14 +45,18 @@ int main(void) {
 
    // Main loop
     while (!renderer.closeWindow()) {
-
-        for (Particle& p : particles) {
-            p.applyGravity(0.01f);
-            p.applyRandomPattern(0.01f);
-            p.update(0.01f);
-
+        for (ParticleEmitter& em : emitters) {
+            em.update(0.5f);
+            renderer.renderParticles(em.particles);
         }
-        renderer.renderParticles(particles);
+        //
+        // for (Particle& p : particles) {
+        //     p.applyGravity(0.01f);
+        //     p.applyRandomPattern(0.01f);
+        //     p.update(0.01f);
+        //
+        // }
+        // renderer.renderParticles(particles);
         glfwPollEvents();
     }
 
