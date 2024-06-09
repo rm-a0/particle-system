@@ -79,3 +79,7 @@ void Renderer::renderParticles(const std::vector<Particle>& particles) {
 
         glfwSwapBuffers(window);
 }
+
+int Renderer::closeWindow() {
+        return glfwWindowShouldClose(window);
+}

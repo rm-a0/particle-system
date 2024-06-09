@@ -9,11 +9,12 @@
 #include "Particle.h"
 
 class Renderer {
-public:
+private:
     int screenWidth, screenHeight;
     glm::mat4 projectionMatrix, viewMatrix;
     GLFWwindow* window;
 
+public:
     /* Renderer constructor
      * --------------------
      * Parameters:
@@ -41,6 +42,13 @@ public:
      * const Particle& particle
     */
     void renderParticles(const std::vector<Particle>& particles);
+
+    /* Close glfw window
+     * -----------------
+     * Parameters:
+     * None
+    */
+    int closeWindow();
 };
 
 #endif // RENDERER_H

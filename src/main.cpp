@@ -28,7 +28,7 @@ int main(void) {
         particles.emplace_back(glm::vec3(x_pos, -1.0f, 0.0f), glm::vec3(x_vel, y_vel, z_vel), glm::vec3(0.0f, -1.0f, 0.0f), lifetime, 0.1f, Color(r_val, g_val), Color(r_val*2, g_val*2, 0.0f, 0.3f));
     }
     // Main loop
-    while (!glfwWindowShouldClose(renderer.window)) {
+    while (!renderer.closeWindow()) {
 
         for (Particle& p : particles) {
             p.update(0.01f);
