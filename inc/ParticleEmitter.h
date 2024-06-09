@@ -19,9 +19,12 @@ public:
      * Parameters:
      * const glm::vec3& pos, vel, acc
      * float lifespan, emissionRate
-     * Color color
+     * const Color& color
+     * const Particle& particle
     */
-    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color);
+    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, std::vector<Particle>& particles);
+
+    void emitParticles();
 };
 
 

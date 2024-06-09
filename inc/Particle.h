@@ -33,6 +33,14 @@ public:
      * Updates attributes based on delta time
     */
     void update(float deltaTime);
+
+    /* Gravity aplication
+     * ------------------
+     * Parameters:
+     * float deltaTime
+     * Updates y.velocity based on delta time
+    */
+    void applyGravity(float deltaTime);
 };
 
 #endif // PARTICLE_H

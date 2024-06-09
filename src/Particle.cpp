@@ -14,3 +14,8 @@ void Particle::update(float deltaTime) {
         float t = 1.0f - (lifeSpan / initialLifeSpan);
         color = Color::interpolate(initialColor, finalColor, t);
 }
+
+void Particle::applyGravity(float deltaTime) {
+        const float gravity = -1.0f;
+        velocity.y += gravity * deltaTime;
+}
