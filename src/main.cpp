@@ -29,16 +29,19 @@ std::vector<Particle> test() {
     return particles;
 }
 
-void test2() {
-    Particle p (glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 1, 0.1f, Color(1.0, 0.5), Color(1.0, 0.5));
-    ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 4.0, 10.0, Color(1.0), p);
+ParticleEmitter test2() {
+    Particle p (glm::vec3(0.0), glm::vec3(1.0, 1.0, -1.0), glm::vec3(0.0), 1, 0.1f, Color(1.0, 0.5), Color(1.0, 0.5));
+    ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 4.0, 0.05, Color(1.0), p);
+    return emitter;
 }
 
 int main(void) {
     Renderer renderer(800, 600);
 
+    std::vector<ParticleEmitter> emitters;
     std::vector<Particle> particles = test();
-    test2();
+    ParticleEmitter e = test2();
+    emitters.emplace_back(e);
 
    // Main loop
     while (!renderer.closeWindow()) {
