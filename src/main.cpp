@@ -22,7 +22,7 @@ std::vector<Particle> test() {
         float lifetime = life_dist(gen)*10;
         float g_val = clr_dist(gen);
         float r_val = clr_dist2(gen);
-        particles.emplace_back(glm::vec3(0.0f, -1.0f, -20.0f), glm::vec3(x_vel, y_vel*9, z_vel), glm::vec3(0.0f, -1.0f, 0.0f), lifetime, 0.1f, Color(r_val, g_val), Color(r_val*2, g_val*2, 0.0f, 0.3f));
+        particles.emplace_back(glm::vec3(0.0f, -1.0f, -10.0f), glm::vec3(x_vel*5, y_vel*20, 0.0f), glm::vec3(-1.0f, -10.0f, -1.0f), lifetime, 0.1f, Color(r_val, g_val), Color(r_val*2, g_val*2, 0.0f, 0.3f));
     }
 
     return particles;
@@ -38,7 +38,9 @@ int main(void) {
 
         for (Particle& p : particles) {
             p.applyGravity(0.01f);
+            p.applyRandomPattern(0.01f);
             p.update(0.01f);
+
         }
         renderer.renderParticles(particles);
         glfwPollEvents();

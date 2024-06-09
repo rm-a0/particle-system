@@ -41,6 +41,14 @@ public:
      * Updates y.velocity based on delta time
     */
     void applyGravity(float deltaTime);
+
+    /* Random Pattern
+     * --------------
+     * Parameters:
+     * float deltaTime
+     * Updates position and velocity randomly based on delta time
+    */
+    void applyRandomPattern(float deltaTime);
 };
 
 #endif // PARTICLE_H
