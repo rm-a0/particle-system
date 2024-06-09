@@ -1,7 +1,5 @@
 #include "Particle.h"
 #include <random>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 
 Particle::Particle(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float size, const Color& initClr, const Color& finalClr)
         : position(pos), velocity(vel), acceleration(acc), lifeSpan(lifeSpan), size(size), initialColor(initClr), finalColor(finalClr) {
