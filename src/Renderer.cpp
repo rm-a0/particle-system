@@ -43,7 +43,7 @@ void Renderer::initOpenGL() {
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         projectionMatrix = glm::perspective(glm::radians(45.0f), (float)screenWidth / (float) screenHeight, 0.1f, 1000.0f);
-        
+
         float cameraDist = 50.0f;
         viewMatrix = glm::lookAt(glm::vec3(0.0f, 0.0f, cameraDist),
                                  glm::vec3(0.0f, 0.0f, 0.0f),
