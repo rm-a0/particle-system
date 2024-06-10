@@ -6,6 +6,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include "Particle.h"
 
 class Renderer {
@@ -13,6 +14,7 @@ private:
     int screenWidth, screenHeight;
     glm::mat4 projectionMatrix, viewMatrix;
     GLFWwindow* window;
+    GLuint vao, vbo;
 
 public:
     /* Renderer constructor
@@ -36,10 +38,17 @@ public:
     */
     void initOpenGL();
 
+    /* VAO setup
+     * ---------
+     * Parameters:
+     * None
+    */
+    void initVAO();
+
     /* Particle renderer
      * -----------------
      * Parameters:
-     * const Particle& particle
+     * const std::vector<Particle>& particles
     */
     void renderParticles(const std::vector<Particle>& particles);
 

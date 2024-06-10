@@ -26,9 +26,12 @@ Renderer::Renderer(int screenWidth, int screenHeight)
 
         // Enable OpenGL functions
         initOpenGL();
+        initVAO();
 }
 
 Renderer::~Renderer() {
+        glDeleteBuffers(1, &vbo);
+        glDeleteVertexArrays(1, &vao);
         if (window) {
                 glfwDestroyWindow(window);
                 glfwTerminate();
@@ -50,6 +53,24 @@ void Renderer::initOpenGL() {
                                  glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
+void Renderer::initVAO() {
+        glGenVertexArrays(1, &vao);
+        glGenBuffers(1, &vbo);
+
+        glBindVertexArray(vao);
+
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * 6, nullptr, GL_DYNAMIC_DRAW);
+
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(1);
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindVertexArray(0);
+}
+
 void Renderer::renderParticles(const std::vector<Particle>& particles) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -57,28 +78,31 @@ void Renderer::renderParticles(const std::vector<Particle>& particles) {
                 glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), p.position);
                 glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
 
-                glMatrixMode(GL_PROJECTION);
-                glLoadMatrixf(glm::value_ptr(mvpMatrix));
-
-                glMatrixMode(GL_MODELVIEW);
-                glLoadIdentity();
-
-                glColor4f(p.color.r, p.color.g, p.color.b, p.color.a);
-
-                // Draw quad (two triangles) for the particle
-                glBegin(GL_TRIANGLES);
                 float halfSize = p.size / 2.0f;
-                glVertex3f(-halfSize, -halfSize, 0.0f);
-                glVertex3f(halfSize, -halfSize, 0.0f);
-                glVertex3f(halfSize, halfSize, 0.0f);
+                float verticies[] = {
+                        -halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                        halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                        halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                        -halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b
+                };
+                glBindBuffer(GL_ARRAY_BUFFER, vbo);
+                glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verticies), verticies);
 
-                glVertex3f(-halfSize, -halfSize, 0.0f);
-                glVertex3f(halfSize, halfSize, 0.0f);
-                glVertex3f(-halfSize, halfSize, 0.0f);
+                // Use the fixed-function pipeline to load the MVP matrix and draw
+                glMatrixMode(GL_PROJECTION);
+                glLoadMatrixf(glm::value_ptr(projectionMatrix));
+                glMatrixMode(GL_MODELVIEW);
+                glLoadMatrixf(glm::value_ptr(viewMatrix * modelMatrix));
+
+                glBegin(GL_QUADS);
+                for (int i = 0; i < 4; ++i) {
+                    glColor3f(verticies[6 * i + 3], verticies[6 * i + 4], verticies[6 * i + 5]);
+                    glVertex3f(verticies[6 * i + 0], verticies[6 * i + 1], verticies[6 * i + 2]);
+                }
                 glEnd();
         }
 
-        glfwSwapBuffers(window);
+    glfwSwapBuffers(window);
 }
 
 int Renderer::closeWindow() {
