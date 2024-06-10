@@ -1,4 +1,5 @@
 #include "ParticleManager.h"
+#include "ParticleEmitter.h"
 
 ParticleManager::ParticleManager() {}
 

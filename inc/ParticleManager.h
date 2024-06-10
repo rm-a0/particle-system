@@ -1,16 +1,16 @@
 #ifndef PARTICLE_MANAGER_H
 #define PARTICLE_MANAGER_H
 
+class ParticleEmitter;
+
 #include "Particle.h"
-#include "ParticleEmitter.h"
 #include <vector>
 
 class ParticleManager {
-private:
+public:
     std::vector<Particle> particles;
     std::vector<ParticleEmitter> emitters;
 
-public:
     /* ParticleManager constructor
      * --------------------------
      * Parameters:

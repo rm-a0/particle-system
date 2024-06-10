@@ -30,27 +30,25 @@ std::vector<Particle> test() {
     return particles;
 }
 
-ParticleEmitter test2() {
+ParticleEmitter test2(ParticleManager& manager) {
     Particle p (glm::vec3(0.0), glm::vec3(0.1, 0.1, 0.5), glm::vec3(0.0), 1.0, 1.0f, Color(1.0, 0.5), Color(1.0, 0.5));
-    ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 99900000, 0.05, Color(1.0), p);
+    ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 99900000, 0.05, Color(1.0), p, manager);
     return emitter;
 }
 
 int main(void) {
-    Renderer renderer(800, 600);
+    // std::vector<Particle> particles = test();
 
-    std::vector<ParticleEmitter> emitters;
-    std::vector<Particle> particles = test();
-    ParticleEmitter e = test2();
-    emitters.emplace_back(e);
+    Renderer renderer(800, 600);
     ParticleManager manager;
+
+    ParticleEmitter e = test2(manager);
+    manager.addParticleEmitter(e);
 
    // Main loop
     while (!renderer.closeWindow()) {
-        for (ParticleEmitter& em : emitters) {
-            em.update(0.5f);
-            renderer.renderParticles(em.particles);
-        }
+        manager.update(0.5f);
+        renderer.renderParticles(manager.particles);
         //
         // for (Particle& p : particles) {
         //     p.applyGravity(0.01f);

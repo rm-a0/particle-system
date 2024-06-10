@@ -2,6 +2,7 @@
 #define PARTICLE_EMITTER_H
 
 #include "Particle.h"
+#include "ParticleManager.h"
 #include <vector>
 
 class ParticleEmitter {
@@ -14,7 +15,7 @@ public:
     float lastEmission;
     Color color;
     Particle prototypeParticle;
-    std::vector<Particle> particles;
+    ParticleManager& manager;
 
     /* ParticleEmitter constructor
      * ---------------------------
@@ -23,8 +24,9 @@ public:
      * float lifespan, emissionRate
      * const Color& color
      * const Particle& prototypeP
+     * ParticleManager& manager;
     */
-    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, const Particle& prototypeP);
+    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, const Particle& prototypeP, ParticleManager& manager);
 
     /* Particle emitter
      * ----------------
