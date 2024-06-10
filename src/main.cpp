@@ -37,8 +37,6 @@ ParticleEmitter test2(ParticleManager& manager) {
 }
 
 int main(void) {
-    // std::vector<Particle> particles = test();
-
     Renderer renderer(800, 600);
     ParticleManager manager;
 
@@ -49,14 +47,6 @@ int main(void) {
     while (!renderer.closeWindow()) {
         manager.update(0.5f);
         renderer.renderParticles(manager.particles);
-        //
-        // for (Particle& p : particles) {
-        //     p.applyGravity(0.01f);
-        //     p.applyRandomPattern(0.01f);
-        //     p.update(0.01f);
-        //
-        // }
-        // renderer.renderParticles(particles);
         glfwPollEvents();
     }
 
