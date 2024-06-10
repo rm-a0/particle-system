@@ -3,6 +3,7 @@
 
 #include "Particle.h"
 #include "ParticleEmitter.h"
+#include <vector>
 
 class ParticleManager {
 private:
@@ -17,6 +18,13 @@ public:
     */
     ParticleManager();
 
+    /* ParticleManager destructor
+     * --------------------------
+     * Parameters:
+     * None
+    */
+    ~ParticleManager();
+
     /* Add Particle
      * ------------
      * Parameters:
@@ -30,6 +38,13 @@ public:
      * const ParticleEmitter& emitter
     */
     void addParticleEmitter(const ParticleEmitter& emitter);
+
+    /* Update and manage
+     * -----------------
+     * Parameters:
+     * float deltaTime
+    */
+    void update(float deltaTime);
 };
 
 #endif // PARTICLE_MANAGER_H

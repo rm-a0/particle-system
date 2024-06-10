@@ -3,6 +3,7 @@
 #include <random>
 #include "Particle.h"
 #include "ParticleEmitter.h"
+#include "ParticleManager.h"
 #include "Renderer.h"
 
 
@@ -42,6 +43,7 @@ int main(void) {
     std::vector<Particle> particles = test();
     ParticleEmitter e = test2();
     emitters.emplace_back(e);
+    ParticleManager manager;
 
    // Main loop
     while (!renderer.closeWindow()) {
