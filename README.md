@@ -2,16 +2,21 @@
 3D Particle system written in C++ using OpenGL and GLFW libraries.
 
 # Description
-To create particles use Particle class
+# Description
+To create particles, use the `Particle` class.
 ```cpp
 Particle(position, velocity, acceleration, lifeSpan, size, initialColor, finalColor);
 ```
-To create emitter use ParticleEmitter class
-Before creating emitter, Particle that emitter emits need to be defined as well as ParticleManager which is needed for storing and updating both emitters and particles
+For creating emitters, use the `ParticleEmitter` class. \
+Before creating an emitter, ensure that the example particle emitted by the emitter is defined, as well as the `ParticleManager`, which is necessary for storing and updating both emitters and particles.
 ```cpp
-ParticleEmitter(pos, vel, acc, lifeSpan, emissionRate, color, prototypeParticle, manager);
+ParticleEmitter(position, velocity, acceleration, lifeSpan, emissionRate, color, prototypeParticle, manager);
 ```
-
+After creating particles and emitters you can add them to `ParticleManager` class.
+```cpp
+manager.addParticle(particle);
+manager.addParticleEmitter(emitter);
+```
 # How to Install and Run
 Download or clone this repository
 ```
