@@ -17,6 +17,14 @@ After creating particles and emitters you can add them to `ParticleManager` clas
 manager.addParticle(particle);
 manager.addParticleEmitter(emitter);
 ```
+For rendering use `Renderer` class.
+```cpp
+Renderer(screenWidth, screenHeight);
+```
+To display particles on screen use
+```cpp
+renderer.renderParticles(manager.particles);
+```
 # How to Install and Run
 Download or clone this repository
 ```
