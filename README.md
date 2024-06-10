@@ -24,7 +24,7 @@ make run
 - [x] Tested and optimalized for multiple particles
 - [x] Added and tested color interpolation
 - [x] Added particle emitter
-- [ ] Optimized rendering using VAOs
+- [x] Optimized rendering using VAOs
 - [ ] Added patterns for particles
 - [ ] Added particle emitter
 

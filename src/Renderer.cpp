@@ -76,7 +76,6 @@ void Renderer::renderParticles(const std::vector<Particle>& particles) {
 
         for (const Particle& p : particles) {
                 glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), p.position);
-                glm::mat4 mvpMatrix = projectionMatrix * viewMatrix * modelMatrix;
 
                 float halfSize = p.size / 2.0f;
                 float verticies[] = {
