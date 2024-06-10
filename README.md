@@ -2,7 +2,6 @@
 3D Particle system written in C++ using OpenGL and GLFW libraries.
 
 # Description
-# Description
 To create particles, use the `Particle` class.
 ```cpp
 Particle(position, velocity, acceleration, lifeSpan, size, initialColor, finalColor);
