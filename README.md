@@ -47,8 +47,10 @@ make run
 - [x] Added and tested color interpolation
 - [x] Added particle emitter
 - [x] Optimized rendering using VAOs
+- [x] Added particle manager
+- [ ] Fixed particle removal
+- [ ] Added more shapes for particles
 - [ ] Added patterns for particles
-- [ ] Added particle emitter
 
 # Bugs and Issues
 - 2 errors from valgrind (issues with imported libraries)
