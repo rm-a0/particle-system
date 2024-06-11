@@ -48,7 +48,8 @@ make run
 - [x] Added particle emitter
 - [x] Optimized rendering using VAOs
 - [x] Added particle manager
-- [ ] Fixed particle removal
+- [x] Fixed particle removal
+- [ ] Fixed emitter removal
 - [ ] Added more shapes for particles
 - [ ] Added patterns for particles
 
