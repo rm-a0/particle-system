@@ -31,13 +31,13 @@ std::vector<Particle> test() {
 }
 
 ParticleEmitter test2(ParticleManager& manager) {
-    Particle p (glm::vec3(0.0), glm::vec3(0.1, 0.1, 0.5), glm::vec3(0.0), 1.0, 1.0f, Color(1.0, 0.5), Color(1.0, 0.5));
+    Particle p (glm::vec3(0.0), glm::vec3(0.1, 0.1, 0.5), glm::vec3(0.0), 100.0, 1.0f, Color(1.0, 0.5), Color(1.0, 0.5));
     ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 99900000, 0.05, Color(1.0), p, manager);
     return emitter;
 }
 
 ParticleEmitter test3(ParticleManager& manager) {
-    Particle p (glm::vec3(0.0), glm::vec3(-0.1, -0.1, -0.5), glm::vec3(0.0), 1.0, 1.0f, Color(1.0, 0.5), Color(1.0, 0.5));
+    Particle p (glm::vec3(0.0), glm::vec3(-0.1, -0.1, -0.5), glm::vec3(0.0), 100.0, 1.0f, Color(1.0, 0.5), Color(1.0, 0.5));
     ParticleEmitter emitter(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), 99900000, 0.05, Color(1.0), p, manager);
     return emitter;
 }
