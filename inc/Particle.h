@@ -42,13 +42,13 @@ public:
     */
     void applyGravity(float deltaTime);
 
-    /* Random Pattern
+    /* Smoke Pattern
      * --------------
      * Parameters:
      * float deltaTime
      * Updates position and velocity randomly based on delta time
     */
-    void applyRandomPattern(float deltaTime);
+    void applySmokePattern(float deltaTime);
 };
 
 #endif // PARTICLE_H
