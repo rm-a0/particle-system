@@ -16,6 +16,7 @@ public:
     Color color;
     Color initialColor;
     Color finalColor;
+    float angle;
 
     /* Particle constructor
      * --------------------
@@ -42,13 +43,12 @@ public:
     */
     void applyGravity(float deltaTime);
 
-    /* Smoke Pattern
-     * --------------
+    /* Circular pattern
+     * ----------------
      * Parameters:
-     * float deltaTime
-     * Updates position and velocity randomly based on delta time
+     * float deltaTime, radius, angularSpeed
     */
-    void applySmokePattern(float deltaTime);
+    void applyCircularPattern(float deltaTime, float radius, float angularSpeed);
 };
 
 #endif // PARTICLE_H

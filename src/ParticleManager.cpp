@@ -28,3 +28,9 @@ void ParticleManager::update(float deltaTime) {
                 e.update(deltaTime);
         }
 }
+
+void ParticleManager::applyCircularPattern(float deltaTime, float radius, float angularSpeed) {
+        for (auto& p : particles) {
+                p.applyCircularPattern(deltaTime, radius, angularSpeed);
+        }
+}

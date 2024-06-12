@@ -45,6 +45,13 @@ public:
      * float deltaTime
     */
     void update(float deltaTime);
+
+     /* Circular pattern
+     * -----------------
+     * Parameters:
+     * float deltaTime, radius, angularSpeed
+    */
+    void applyCircularPattern(float deltaTime, float radius, float angularSpeed);
 };
 
 #endif // PARTICLE_MANAGER_H
