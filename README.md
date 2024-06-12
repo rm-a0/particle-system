@@ -49,10 +49,9 @@ make run
 - [x] Optimized rendering using VAOs
 - [x] Added particle manager
 - [x] Fixed particle removal
+- [x] Added circular pattern
 - [ ] Fixed emitter removal
 - [ ] Added more shapes for particles
-- [ ] Added patterns for particles
 
 # Bugs and Issues
 - 2 errors from valgrind (issues with imported libraries)
-- Max 10k paricles on low end grpahics (tested with Intel Tiger Lake-LP GT2)
