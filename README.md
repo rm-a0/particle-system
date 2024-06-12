@@ -16,7 +16,7 @@ After creating particles and emitters you can add them to `ParticleManager` clas
 manager.addParticle(particle);
 manager.addParticleEmitter(emitter);
 ```
-After completing manager use `update` method to start creating particles
+After completing manager use `update` method to start creating particles.
 ```cpp
 manager.update(deltaTime);
 // to apply different patterns use .applyPattern(...)
