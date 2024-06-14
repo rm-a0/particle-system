@@ -61,3 +61,5 @@ make run
 
 # Bugs and Issues
 - 2 errors from valgrind (issues with imported libraries)
+- reference to renderer is an issue when erasing emmiters from manager
+- fix emitter erasing

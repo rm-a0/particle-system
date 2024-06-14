@@ -14,18 +14,24 @@ void ParticleManager::addParticleEmitter(const ParticleEmitter& emitter) {
 }
 
 void ParticleManager::update(float deltaTime) {
-        for (auto it = particles.begin(); it != particles.end();) {
-                it->update(deltaTime);
-                if (it->lifeSpan <= 0) {
-                        it = particles.erase(it);
+        for (auto p = particles.begin(); p != particles.end();) {
+                p->update(deltaTime);
+                if (p->lifeSpan <= 0) {
+                        p = particles.erase(p);
                 }
                 else {
-                        ++it;
+                        ++p;
                 }
         }
 
-        for (auto& e : emitters) {
-                e.update(deltaTime);
+       for (auto e = emitters.begin(); e != emitters.end();) {
+                e->update(deltaTime);
+                if (e->lifeSpan <= 0) {
+                        // e = emitters.erase(e);
+                }
+                else {
+                        ++e;
+                }
         }
 }
 
