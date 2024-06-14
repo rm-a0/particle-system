@@ -29,9 +29,7 @@ void ParticleManager::update(float deltaTime) {
                 if (e->lifeSpan <= 0) {
                         // e = emitters.erase(e);
                 }
-                else {
                         ++e;
-                }
         }
 }
 
