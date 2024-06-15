@@ -13,7 +13,6 @@ public:
     float lifeSpan;
     float emissionRate;
     float lastEmission;
-    Color color;
     Particle prototypeParticle;
     ParticleManager& manager;
 
@@ -26,7 +25,7 @@ public:
      * const Particle& prototypeP
      * ParticleManager& manager;
     */
-    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Color& color, const Particle& prototypeP, ParticleManager& manager);
+    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Particle& prototypeP, ParticleManager& manager);
 
     /* Particle emitter
      * ----------------
