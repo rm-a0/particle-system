@@ -9,7 +9,7 @@ Particle(position, velocity, acceleration, lifeSpan, size, initialColor, finalCo
 For creating emitters, use the `ParticleEmitter` class. \
 Before creating an emitter, ensure that the example particle emitted by the emitter is defined, as well as the `ParticleManager`, which is necessary for storing and updating both emitters and particles.
 ```cpp
-ParticleEmitter(position, velocity, acceleration, lifeSpan, emissionRate, color, prototypeParticle, manager);
+ParticleEmitter(position, velocity, acceleration, lifeSpan, emissionRate, prototypeParticle, manager);
 ```
 After creating particles and emitters you can add them to `ParticleManager` class.
 ```cpp
