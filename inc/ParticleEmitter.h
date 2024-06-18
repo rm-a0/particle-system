@@ -14,7 +14,7 @@ public:
     float emissionRate;
     float lastEmission;
     Particle prototypeParticle;
-    ParticleManager& manager;
+    ParticleManager* manager;
 
     /* ParticleEmitter constructor
      * ---------------------------
@@ -25,7 +25,7 @@ public:
      * const Particle& prototypeP
      * ParticleManager& manager;
     */
-    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Particle& prototypeP, ParticleManager& manager);
+    ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Particle& prototypeP, ParticleManager* manager);
 
     /* Particle emitter
      * ----------------

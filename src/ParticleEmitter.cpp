@@ -2,7 +2,7 @@
 #include <iostream>
 #include <random>
 
-ParticleEmitter::ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Particle& prototypeP, ParticleManager& manager)
+ParticleEmitter::ParticleEmitter(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float emissionRate, const Particle& prototypeP, ParticleManager* manager)
         : position(pos), velocity(vel), acceleration(acc), lifeSpan(lifeSpan), emissionRate(emissionRate), prototypeParticle(prototypeP), manager(manager) {
         lastEmission = 0.0f;
 }
@@ -27,6 +27,6 @@ void ParticleEmitter::emit(int count) {
                 float randomPosition = 5*distribution(gen);
                 Particle p = prototypeParticle;
                 p.position = position+randomPosition;
-                manager.addParticle(p);
+                manager->addParticle(p);
         }
 }
