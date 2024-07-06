@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/type_ptr.hpp>
 #include "Renderer.h"
+#include "shapeConst.h"
 
 Renderer::Renderer(int screenWidth, int screenHeight)
         : screenWidth(screenWidth), screenHeight(screenHeight) {
@@ -77,31 +78,41 @@ void Renderer::renderParticles(const std::vector<Particle>& particles) {
         for (const Particle& p : particles) {
                 glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), p.position);
 
-                float halfSize = p.size / 2.0f;
-                float verticies[] = {
-                        -halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
-                        halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
-                        halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
-                        -halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b
-                };
-                glBindBuffer(GL_ARRAY_BUFFER, vbo);
-                glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verticies), verticies);
-
-                // Use the fixed-function pipeline to load the MVP matrix and draw
-                glMatrixMode(GL_PROJECTION);
-                glLoadMatrixf(glm::value_ptr(projectionMatrix));
-                glMatrixMode(GL_MODELVIEW);
-                glLoadMatrixf(glm::value_ptr(viewMatrix * modelMatrix));
-
-                glBegin(GL_QUADS);
-                for (int i = 0; i < 4; ++i) {
-                    glColor3f(verticies[6 * i + 3], verticies[6 * i + 4], verticies[6 * i + 5]);
-                    glVertex3f(verticies[6 * i + 0], verticies[6 * i + 1], verticies[6 * i + 2]);
+                if (p.shape == SQUARE) {
+                        renderSquare(p, modelMatrix);
                 }
-                glEnd();
+                else if (p.shape == CIRCLE) {
+                        renderSquare(p, modelMatrix);
+                }
         }
 
     glfwSwapBuffers(window);
+}
+
+void Renderer::renderSquare(const Particle& p, glm::mat4 modelMatrix) {
+        float halfSize = p.size / 2.0f;
+        float verticies[] = {
+                -halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                -halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b
+        };
+
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verticies), verticies);
+
+        // Use the fixed-function pipeline to load the MVP matrix and draw
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(glm::value_ptr(projectionMatrix));
+        glMatrixMode(GL_MODELVIEW);
+        glLoadMatrixf(glm::value_ptr(viewMatrix * modelMatrix));
+
+        glBegin(GL_QUADS);
+        for (int i = 0; i < 4; ++i) {
+            glColor3f(verticies[6 * i + 3], verticies[6 * i + 4], verticies[6 * i + 5]);
+            glVertex3f(verticies[6 * i + 0], verticies[6 * i + 1], verticies[6 * i + 2]);
+        }
+        glEnd();
 }
 
 int Renderer::closeWindow() {

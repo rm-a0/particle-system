@@ -1,12 +1,14 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
+#include <stdio.h>
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include "Color.h"
 
 class Particle {
 public:
+    int shape;
     glm::vec3 position;
     glm::vec3 velocity;
     glm::vec3 acceleration;
@@ -25,7 +27,7 @@ public:
      * float lifespan
      * Color initClr, finalClr
     */
-    Particle(const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float size, const Color& initClr, const Color& finalClr);
+    Particle(int shape, const glm::vec3& pos, const glm::vec3& vel, const glm::vec3& acc, float lifeSpan, float size, const Color& initClr, const Color& finalClr);
 
     /* Particle update
      * ---------------
