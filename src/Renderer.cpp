@@ -82,7 +82,7 @@ void Renderer::renderParticles(const std::vector<Particle>& particles) {
                         renderSquare(p, modelMatrix);
                 }
                 else if (p.shape == CIRCLE) {
-                        renderSquare(p, modelMatrix);
+                        renderCircle(p, modelMatrix);
                 }
         }
 
@@ -96,6 +96,32 @@ void Renderer::renderSquare(const Particle& p, glm::mat4 modelMatrix) {
                 halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
                 halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
                 -halfSize,  halfSize, 0.0f, p.color.r, p.color.g, p.color.b
+        };
+
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verticies), verticies);
+
+        // Use the fixed-function pipeline to load the MVP matrix and draw
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(glm::value_ptr(projectionMatrix));
+        glMatrixMode(GL_MODELVIEW);
+        glLoadMatrixf(glm::value_ptr(viewMatrix * modelMatrix));
+
+        glBegin(GL_QUADS);
+        for (int i = 0; i < 4; ++i) {
+            glColor3f(verticies[6 * i + 3], verticies[6 * i + 4], verticies[6 * i + 5]);
+            glVertex3f(verticies[6 * i + 0], verticies[6 * i + 1], verticies[6 * i + 2]);
+        }
+        glEnd();
+}
+
+void Renderer::renderCircle(const Particle& p, glm::mat4 modelMatrix) {
+        float halfSize = p.size / 2.0f;
+        float verticies[] = {
+                halfSize, 0, 0.0f, p.color.r, p.color.g, p.color.b,
+                -halfSize, 0, 0.0f, p.color.r, p.color.g, p.color.b,
+                0, halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                0, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b
         };
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);

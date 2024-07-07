@@ -57,7 +57,9 @@ make run
 - [x] Fixed particle removal
 - [x] Added circular pattern
 - [x] Fixed emitter removal
-- [ ] Added more shapes for particles
+- [x] Added more shapes for particles
+- [ ] Added 2d shape rednering
+- [ ] Added 3d shape rednering
 
 # Bugs and Issues
 - 2 errors from valgrind (issues with imported libraries)

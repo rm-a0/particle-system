@@ -6,5 +6,7 @@
 #define TRIANGLE 2
 #define PENTAGON 3
 #define HEXAGON 4
+#define CUBE 5
+#define SPHERE 6
 
 #endif // CONST_H

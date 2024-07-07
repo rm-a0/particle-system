@@ -53,11 +53,20 @@ public:
     void renderParticles(const std::vector<Particle>& particles);
 
     /* Square renderer
-     * -----------------
+     * ---------------
      * Parameters:
      * const Particle& p
+     * glm::mat4 modelMatrix
     */
     void renderSquare(const Particle& p, glm::mat4 modelMatrix);
+
+    /* Circle renderer
+     * ---------------
+     * Parameters:
+     * const Particle& p
+     * glm::mat4 modelMatrix
+    */
+    void renderCircle(const Particle& p, glm::mat4 modelMatrix);
 
     /* Close glfw window
      * -----------------
