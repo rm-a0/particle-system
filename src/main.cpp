@@ -29,7 +29,7 @@ ParticleManager shapeTest() {
 
 int main(void) {
     Renderer renderer(800, 600);
-    ParticleManager manager = shapeTest();
+    ParticleManager manager = test();
 
 
     auto lastFrameTime = std::chrono::high_resolution_clock::now();

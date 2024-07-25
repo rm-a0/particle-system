@@ -118,11 +118,12 @@ void Renderer::renderSquare(const Particle& p, glm::mat4 modelMatrix) {
 void Renderer::renderCircle(const Particle& p, glm::mat4 modelMatrix) {
         float halfSize = p.size / 2.0f;
         float verticies[] = {
-                halfSize, 0, 0.0f, p.color.r, p.color.g, p.color.b,
-                -halfSize, 0, 0.0f, p.color.r, p.color.g, p.color.b,
-                0, halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
-                0, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b
+                -halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                halfSize, -halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                halfSize, halfSize, 0.0f, p.color.r, p.color.g, p.color.b,
+                -halfSize, halfSize, 0.0f, p.color.r, p.color.g, p.color.b
         };
+
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verticies), verticies);
